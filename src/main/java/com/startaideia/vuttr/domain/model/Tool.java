@@ -13,13 +13,8 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import lombok.Getter;
-import lombok.Setter;
-
 @JsonInclude(Include.NON_NULL)
 @Entity
-@Getter
-@Setter
 public class Tool {
 	
 	@Id

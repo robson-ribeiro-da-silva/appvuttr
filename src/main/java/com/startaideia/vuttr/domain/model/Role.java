@@ -7,12 +7,8 @@ import javax.persistence.Id;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
 public class Role implements GrantedAuthority {
 	
 	public Role(String name) {
