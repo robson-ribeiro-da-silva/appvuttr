@@ -2,7 +2,7 @@ CREATE TABLE tool (
   id bigint(20) NOT NULL AUTO_INCREMENT,
   description varchar(255) NOT NULL,
   link varchar(50) NOT NULL,
-  tags tinyblob,
+  listtags tinyblob,
   title varchar(50) NOT NULL,
   PRIMARY KEY (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;

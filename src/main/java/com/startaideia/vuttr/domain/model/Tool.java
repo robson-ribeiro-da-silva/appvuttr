@@ -39,8 +39,7 @@ public class Tool {
 	private String description;
 	
 	@NotEmpty
-	private ArrayList<String> tags;
-
+	private ArrayList<String> listtags; 
 	public Long getId() {
 		return id;
 	}
@@ -73,13 +72,15 @@ public class Tool {
 		this.description = description;
 	}
 
-	public ArrayList<String> getTags() {
-		return tags;
+	public ArrayList<String> getListtags() {
+		return listtags;
 	}
 
-	public void setTags(ArrayList<String> tags) {
-		this.tags = tags;
-	}	
+	public void setListtags(ArrayList<String> listtags) {
+		this.listtags = listtags;
+	}
+
+	
 	
 
 }

@@ -25,7 +25,7 @@ public class ToolService {
 		
 		if(!tools.isEmpty()){
 			for(Tool tool : tools) {
-				if(tool.getTags() != null && tool.getTags().contains(tag)) {
+				if(tool.getListtags() != null && tool.getListtags().contains(tag)) {
 					toolsbytag.add(tool);
 				}
 			}
