@@ -22,12 +22,23 @@ import com.startaideia.vuttr.api.controller.exceptionhandler.Problem.Field;
 import com.startaideia.vuttr.domain.exception.DomainException;
 import com.startaideia.vuttr.domain.exception.EntityNotFoundException;
 
+/**
+ * Classe para tratamento dos erros da API e lançamentos de Exceções
+ * @author robso
+ * Extende a classe ResponseEntityExceptionHandler e implementa seus métodos
+ */
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@Autowired
 	private MessageSource messageSource;
 	
+	/**
+	 * Método que trata uma Exceção caso a Entidade não seja encontrada
+	 * @param ex
+	 * @param request
+	 * @return
+	 */
 	@ExceptionHandler(EntityNotFoundException.class)
 	public ResponseEntity<Object> handleEntidadeNaoEncontrada(EntityNotFoundException ex, WebRequest request){
 		HttpStatus status = HttpStatus.NOT_FOUND;
@@ -40,6 +51,12 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 		return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
 	}
 	
+	/**
+	 * Método que trata uma Exceção em caso de erro de dominio
+	 * @param ex
+	 * @param request
+	 * @return
+	 */
 	@ExceptionHandler(DomainException.class)
 	public ResponseEntity<Object> handleNegocio(DomainException ex, WebRequest request){
 		HttpStatus status = HttpStatus.BAD_REQUEST;
@@ -52,6 +69,9 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 		return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
 	}
 	
+	/**
+	 * Método que trata uma Exceção de erros de argumentos inválidos
+	 */
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {

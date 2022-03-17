@@ -7,7 +7,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 
-	
+/**
+ * Classe para mapeamento e atribuições dos possíveis erros da API	
+ * @author robso
+ *
+ */
 @JsonInclude(Include.NON_NULL)
 public class Problem {
 		
@@ -16,11 +20,21 @@ public class Problem {
 		private String title;
 		private List<Field> fields;
 		
+		/**
+		 * Classe que distingue os campos dos possíveis erros da API
+		 * @author robso
+		 *
+		 */
 		public static class Field {
 			
 			private String name;
 			private String message;
 			
+			/**
+			 * Método construtor
+			 * @param name
+			 * @param message
+			 */
 			public Field(String name, String message) {
 				super();
 				this.name = name;
@@ -28,7 +42,12 @@ public class Problem {
 			
 			
 		}
-		
+			
+		/**
+		 * Getters and Setters
+		 * @return
+		 */
+			
 		public String getName() {
 				return name;
 			}
@@ -46,6 +65,11 @@ public class Problem {
 			}
 		}
 
+		/**
+		 * Getters and Setters
+		 * @return
+		 */
+		
 		public Integer getStatus() {
 			return status;
 		}

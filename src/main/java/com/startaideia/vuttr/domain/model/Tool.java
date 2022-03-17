@@ -13,6 +13,11 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+/**
+ * Classe responsável pelas atribuições referente a Ferramenta.
+ * @author robso
+ *
+ */
 @JsonInclude(Include.NON_NULL)
 @Entity
 public class Tool {
@@ -35,6 +40,12 @@ public class Tool {
 	
 	@NotEmpty
 	private ArrayList<String> listtags; 
+	
+	/**
+	 * Abaixo todos os métodos Getters e Setters da Classe Ferramenta
+	 * @return
+	 */
+	
 	public Long getId() {
 		return id;
 	}

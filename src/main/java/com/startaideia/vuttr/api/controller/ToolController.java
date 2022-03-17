@@ -24,6 +24,11 @@ import com.startaideia.vuttr.domain.model.Tool;
 import com.startaideia.vuttr.domain.repository.ToolRepository;
 import com.startaideia.vuttr.domain.service.ToolService;
 
+/**
+ * Classe reponsável pela disponibilização dos endpoints da API das Ferramenta
+ * @author robso
+ *
+ */
 @RestController
 @RequestMapping("/api/tools")
 public class ToolController {
@@ -34,6 +39,11 @@ public class ToolController {
 	@Autowired
 	private ToolService toolService;
 	
+	/**
+	 * Método que adiciona uma nova Ferramenta
+	 * @param tool - Parâmentro do tipo Ferramenta
+	 * @return
+	 */
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Tool addTool(@Valid @RequestBody Tool tool){
@@ -41,12 +51,21 @@ public class ToolController {
 		return toolRepository.save(tool);
 	}
 	
+	/**
+	 * Método que retorna uma lista de todas Ferramentas
+	 * @return
+	 */
 	@GetMapping("/")
 	public  ResponseEntity<List<Tool>> findAll(){
 		
 		return ResponseEntity.ok(toolRepository.findAll());
 	}
 	
+	/**
+	 * Método que retorna uma Ferramenta específica pelo identificador
+	 * @param toolId - um Long referente ao identificador da Ferramenta
+	 * @return
+	 */
 	@GetMapping("/{toolId}")
 	public ResponseEntity<Tool> findById(@PathVariable("toolId") Long toolId){
 		
@@ -57,6 +76,11 @@ public class ToolController {
 		return ResponseEntity.notFound().build();
 	}
 	
+	/**
+	 * Método que retorna uma lista de Ferramentas por uma tag
+	 * @param tag - uma String referente a uma tag da Ferramenta
+	 * @return
+	 */
 	@GetMapping
 	public  ResponseEntity<List<Tool>> findByTag(@RequestParam(value="tag") String tag){
 
@@ -64,6 +88,11 @@ public class ToolController {
 		return ResponseEntity.ok(tools);
 	}
 	
+	/**
+	 * Método que retorna uma lista de Ferramentas pelo titulo
+	 * @param title - uma String referente ao titulo da Ferramenta
+	 * @return
+	 */
 	@GetMapping("/bytitle")
 	public  ResponseEntity<List<Tool>> findByTitle(@RequestParam(value="title") String title){
 
@@ -71,6 +100,12 @@ public class ToolController {
 		return ResponseEntity.ok(tools);
 	}
 	
+	/**
+	 * Método que atualiza uma Ferramenta existente apartir do identificador
+	 * @param tool - Parâmentro do tipo Ferramenta
+	 * @param toolId - um Long referente ao identificador da Ferramenta 
+	 * @return
+	 */
 	@PutMapping("/{toolId}")
 	public ResponseEntity<Tool> updateTool(@Valid @PathVariable("toolId") Long toolId, @RequestBody Tool tool){
 		
@@ -81,6 +116,11 @@ public class ToolController {
 		return ResponseEntity.ok(toolRepository.save(tool));
 	}
 	
+	/**
+	 * Método que remove uma Ferramenta existente apartir do identificador
+	 * @param toolId - um Long referente ao identificador da Ferramenta 
+	 * @return
+	 */
 	@DeleteMapping("/{toolId}")
 	public ResponseEntity<Void> deleteTool(@PathVariable("toolId") Long toolId){
 		

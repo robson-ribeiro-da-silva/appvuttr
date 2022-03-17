@@ -12,10 +12,17 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * 
+ * Classe responsável pela configuração do Swagger para geração da documentação da API
+ */
 @Configuration
 @EnableSwagger2
 public class SpringFoxConfig {
 
+	/*
+	 * Método de configuração das atribuições em relação a geraração da documentação da API
+	 */
 	@Bean
     public Docket api() { 
         return new Docket(DocumentationType.SWAGGER_2)  
@@ -27,6 +34,9 @@ public class SpringFoxConfig {
           
     }
 	
+	/*
+	 * Método de configuração das informações referentes a API 
+	 */
 	private ApiInfo apiInfo() {
 	    return new ApiInfo(
 	      "REST API VUTTR (Very Useful Tools to Remember)", 

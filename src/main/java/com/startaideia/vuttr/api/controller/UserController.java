@@ -20,6 +20,11 @@ import com.startaideia.vuttr.domain.model.User;
 import com.startaideia.vuttr.domain.repository.RoleRepository;
 import com.startaideia.vuttr.domain.repository.UserRepository;
 
+/**
+ * Classe reponsável pela disponibilização dos endpoints da API de Usuario
+ * @author robso
+ *
+ */
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -30,6 +35,11 @@ public class UserController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    /**
+     * Método que adiciona uma novo Usuario
+     * @param user - Parâmetro do tipo Usuario
+     * @return
+     */
     @Secured({Const.ROLE_ADMIN})
     @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity<User> save(@RequestBody User user){
@@ -37,6 +47,11 @@ public class UserController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
+    /**
+     * Método que atualiza um Usuario existente
+     * @param user - - Parâmetro do tipo Usuario
+     * @return
+     */
     @Secured({Const.ROLE_ADMIN})
     @RequestMapping(value = "", method = RequestMethod.PUT)
     public ResponseEntity<User> edit(@RequestBody User user){
@@ -44,6 +59,12 @@ public class UserController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
+    /**
+     * Método que lista um Usuario existente apartir de dois parâmetros
+     * @param page - idenficador
+     * @param size - tamanho
+     * @return
+     */
     @Secured({Const.ROLE_CLIENT, Const.ROLE_ADMIN})
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<Page<User>> list(

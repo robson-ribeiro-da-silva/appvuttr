@@ -12,6 +12,12 @@ import org.springframework.stereotype.Service;
 import com.startaideia.vuttr.domain.model.User;
 import com.startaideia.vuttr.domain.repository.UserRepository;
 
+/**
+ * Classe responsável pelas atribuições referente ao Serviço da classe Usuario
+ * @author robso
+ * Implementa a classe UserDetailsService e UserDetails
+ * Sobrescreve os métodos das classes implementadas
+ */
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 	

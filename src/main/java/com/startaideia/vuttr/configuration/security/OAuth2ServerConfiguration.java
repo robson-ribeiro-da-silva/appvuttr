@@ -31,11 +31,21 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 import com.startaideia.vuttr.domain.service.MyUserDetailsService;
 
+/**
+ * Classe reponsável pelas configurações de autenticação e autorização com Oauth2 do Spring
+ * @author robso
+ *
+ */
 @Configuration
 public class OAuth2ServerConfiguration {
 	
 	private static final String RESOURCE_ID = "restservice";
 
+	/**
+	 * Classe para configuração das permissões de acesso aos recursos
+	 * @author robso
+	 *
+	 */
     @Configuration
     @EnableResourceServer
     @EnableOAuth2Client
@@ -66,6 +76,11 @@ public class OAuth2ServerConfiguration {
 
     }
     
+    /**
+     * Classe reponsável pela autorização do cliente no servidor
+     * @author robso
+     *
+     */
     @Configuration
     @EnableAuthorizationServer
     protected static class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {

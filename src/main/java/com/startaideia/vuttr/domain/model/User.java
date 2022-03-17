@@ -11,37 +11,58 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
+/**
+ * Classe responsável pelas atribuições referente ao Usuario.
+ * @author robso
+ *
+ */
 @Entity
 public class User {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    @Column(unique = true)
+    
+	@NotBlank
+	private String name;
+    
+	@Column(unique = true)
     private String email;
-    @JsonIgnore
+    
+	@JsonIgnore
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="user_role",
             joinColumns= {@JoinColumn(name="user_id")},
-            inverseJoinColumns= {@JoinColumn(name="role_id")}
-    )
-    private List<Role> roles;
+            inverseJoinColumns= {@JoinColumn(name="role_id")})
+    private List<Role> roles;  // referente as permissões que o usuario tem
+    
+    /**
+	 * Abaixo todos os métodos Construtores da Classe Usuario
+	 * @return
+	 */
 
-    public User() {
-    }
+    public User() { }
 
+    /**
+     * Construtor da Classe que recebe dois parâmetros
+     * @param name - uma String referente ao nome
+     * @param email - uma String referente ao email
+     */
     public User(String name, String email) {
         super();
         this.name = name;
         this.email = email;
     }
+    /**
+     * Construtor da Classe que recebe um parâmetro do tipo usuario
+     * @param user - tipo usuario
+     */
     public User(User user) {
         super();
         this.name = user.getName();
@@ -50,6 +71,13 @@ public class User {
         this.roles = user.getRoles();
         this.id = user.getId();
     }
+	/**
+	 * Construtor da Classe que recebe quatro parâmetros
+     * @param name - uma String referente ao nome
+     * @param email - uma String referente ao email
+	 * @param password - uma String referente a senha de acesso
+	 * @param roles - Lista de permissões do usuário
+	 */
     public User(String name, String email, String password, List<Role> roles) {
         super();
         this.name = name;
@@ -58,6 +86,11 @@ public class User {
         this.password = password;
     }
 
+    /**
+	 * Abaixo todos os métodos Getters e Setters da Classe Usuario
+	 * @return
+	 */
+    
 	public Long getId() {
 		return id;
 	}

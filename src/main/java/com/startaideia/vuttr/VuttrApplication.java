@@ -5,6 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * Classe principal da aplicação
+ * @author robso
+ *
+ */
 @SpringBootApplication
 public class VuttrApplication {
 

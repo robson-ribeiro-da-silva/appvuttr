@@ -15,6 +15,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.startaideia.vuttr.domain.service.MyUserDetailsService;
 
+/**
+ * Classe reponsável pelas configurações web e segurançao da apricação
+ * @author robso
+ * Estende a classe WebSecurityConfigurerAdapter e implementa seus métodos
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
