@@ -20,7 +20,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SpringFoxConfig {
 
-	/*
+	/**
 	 * Método de configuração das atribuições em relação a geraração da documentação da API
 	 */
 	@Bean
@@ -34,7 +34,7 @@ public class SpringFoxConfig {
           
     }
 	
-	/*
+	/**
 	 * Método de configuração das informações referentes a API 
 	 */
 	private ApiInfo apiInfo() {
