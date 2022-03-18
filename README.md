@@ -3,6 +3,9 @@
 # appvuttr
 Aplicação que consiste em uma API e Banco de Dados para a aplicação VUTTR (Very Useful Tools to Remember). A aplicação tem o próposito se servir para gerenciar ferramentas com seus respectivos detalhes. 
 
+### Para download em sua máquina local:
+Caso deseje importar a aplicação para seu computador local, após o download e extração do projeto em uma IDE de sua preferência se faz necessário realizar as configurações do **Banco de Dados** no arquivo: *application.properties*, no caminho: */appvuttr/src/main/resources/*.
+
 ### Documentação da API disponível no Heroku:
 * [Documentação Vuttr](https://appvuttrsi.herokuapp.com/swagger-ui.html)
 
