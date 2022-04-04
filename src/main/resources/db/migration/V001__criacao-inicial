@@ -1,0 +1,30 @@
+create table role (
+   id bigint not null,
+    name varchar(255),
+    primary key (id)
+);
+
+create table tool (
+   id bigint not null,
+    description varchar(255),
+    link varchar(50),
+    listtags tinyblob,
+    title varchar(50),
+    primary key (id)
+);
+
+create table user (
+    id bigint not null,
+	email varchar(255),
+	name varchar(255),
+	password varchar(255),
+	primary key (id),
+	unique (email)
+);
+
+create table user_role (
+   user_id bigint not null,
+   role_id bigint not null,
+   constraint foreign key (role_id) references role (id),
+   constraint foreign key (user_id) references user (id)
+);
